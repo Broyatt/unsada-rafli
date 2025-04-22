@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Universitas Darma Persada| Form</title>
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Variabel Warna */
+        :root {
+            --primary: #1a56a7;
+            --primary-light: #4a89dc;
+            --primary-dark: #0d47a1;
+            --secondary: #f5f7fa;
+            --text: #333333;
+            --text-light: #666666;
+            --white: #ffffff;
+        }
+
+        /* Layout Utama */
+        body {
+            color: var(--text);
+            background-color: var(--secondary);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header & Navbar */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .logo-text h1 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo-text p {
+            color: var(--text-light);
+            font-size: 0.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links .active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.6rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Form Section */
+        .form-section {
+            padding: 4rem 0;
+            min-height: 80vh;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+
+        .form-title h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-title p {
+            color: var(--text-light);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+        }
+
+        .radio-option input {
+            margin-right: 0.5rem;
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 0.7rem center;
+            background-size: 1rem;
+        }
+
+        .btn-submit {
+            background-color: #042bac;
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+    background-color: #060e7c;
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .footer-logo-text h3 {
+            font-size: 1.2rem;
+        }
+
+        .footer-about p {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links h4, .footer-contact h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-links h4::after, .footer-contact h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--white);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #cccccc;
+        }
+
+        .footer-contact p {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-contact i {
+            margin-right: 0.5rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 1rem 0;
+            }
+
+            .logo {
+                margin-bottom: 1rem;
+            }
+
+            .nav-links {
+                margin-top: 1rem;
+            }
+
+            .nav-links li {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links li {
+                margin: 0.5rem 0;
+            }
+
+            .form-container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navbar -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="img/logo.jpg" alt="Logo Universitas">
+                    <div class="logo-text">
+                        <h1>UNIVERSITAS DARMA PERSADA</h1>
+                        <p>Unggul, Mandiri, Berkarakter</p>
+                    </div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="index.html#tentang">Tentang</a></li>
+                    <li><a href="index.html#program">Program</a></li>
+                    <li><a href="index.html#kontak">Kontak</a></li>
+                    <li><a href="#" class="btn active">Daftar Sekarang</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Form Section -->
+    <section class="form-section">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-title">
+                    <h2>Formulir Pendaftaran Mahasiswa Baru</h2>
+                    <p>Isi data diri Anda dengan lengkap dan benar</p>
+                </div>
+                <form action="#" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nama-depan">Nama Depan</label>
+                            <input type="text" id="nama-depan" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nama-belakang">Nama Belakang</label>
+                            <input type="text" id="nama-belakang" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="no-hp">Nomor Handphone</label>
+                        <input type="tel" id="no-hp" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jenis-kelamin">Jenis Kelamin</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="laki-laki" name="jenis-kelamin" value="Laki-laki" required>
+                                <label for="laki-laki">Laki-laki</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="perempuan" name="jenis-kelamin" value="Perempuan">
+                                <label for="perempuan">Perempuan</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tanggal-lahir">Tanggal Lahir</label>
+                        <input type="date" id="tanggal-lahir" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="alamat">Alamat</label>
+                        <textarea id="alamat" class="form-control" rows="3" required></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="kota">Kota</label>
+                            <input type="text" id="kota" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="provinsi">Provinsi</label>
+                            <input type="text" id="provinsi" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="program-studi">Program Studi</label>
+                        <select id="program-studi" class="form-control" required>
+                            <option value="" selected disabled>Pilih Program Studi</option>
+                            <option value="Bahasa Inggris">D3 - Bahasa Inggris</option>
+                            <option value="Bahasa Jepang">D3 - Bahasa Jepang</option>
+                            <option value="Teknik Elektro">S1 - Teknik Elektro</option>
+                            <option value="Sistem Informasi">S1 - Sistem Informasi</option>
+                            <option value="Bahasa Dan Kebudayan Inggris">S1 - Bahasa Dan Kebudayan Inggris</option>
+                            <option value="Teknik Perkapalan">S1 - Teknik Perkapalan</option>
+                            <option value="Teknik Mesin">S1 - Teknik Mesin</option>
+                            <option value="Teknik Industri">S1 - Teknik Industri</option>
+                            <option value="Teknik Sistem Perkapalan">S1 - Teknik Sistem Perkapalan</option>
+                            <option value="Bahasa dan Kebudayan Jepang">S1 - Bahasa dan Kebudayan Jepang</option>
+                            <option value="Manajemen">S1 - Manajemen</option>
+                            <option value="Akuntansi">S1 - Akuntansi</option>
+                            <option value="Bahasa dan Kebudayan Tiongkok">S1 - Bahasa dan Kebudayan Tiongkok</option>
+                            <option value="Teknologi Informasi ">S1 - Teknologi Informasi</option>
+                            <option value="Teknik Energi Terbarukan">S2 - Teknik Energi Terbarukan</option>
+                            </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="asal-sekolah">Asal Sekolah</label>
+                        <input type="text" id="asal-sekolah" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tahun-lulus">Tahun Lulus</label>
+                        <input type="number" id="tahun-lulus" class="form-control" min="1900" max="2099" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="foto">Upload Foto (3x4)</label>
+                        <input type="file" id="foto" class="form-control" accept="image/*" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ijazah">Upload Scan Ijazah</label>
+                        <input type="file" id="ijazah" class="form-control" accept=".pdf,.jpg,.png" required>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="radio-option">
+                            <input type="checkbox" id="persetujuan" required>
+                            <label for="persetujuan">Saya menyatakan bahwa data yang diisi adalah benar dan siap menerima konsekuensi jika data tersebut tidak valid.</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Kirim Pendaftaran</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="img/logo.jpg" alt="Logo Universitas">
+                        <div class="footer-logo-text">
+                            <h3>UNIVERSITAS DARMA PERSADA</h3>
+                        </div>
+                    </div>
+                    <p>Universitas Darma Persada berkomitmen untuk memberikan pendidikan tinggi berkualitas yang terjangkau bagi semua kalangan.</p>
+                    <p>Terakreditasi B oleh BAN-PT</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Menu</h4>
+                    <ul>
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="index.html#tentang">Tentang Kami</a></li>
+                        <li><a href="index.html#program">Program Studi</a></li>
+                        <li><a href="form.html">Pendaftaran</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Kontak Kami</h4>
+                    <p><i>📌</i> Jl. Taman Malaka Selatan, Pondok Kelapa - Jakarta Timur - 13450 - Indonesia</p>
+                    <p><i>📞</i> (021) 8649059 WA: +62 811-9650-8870</p>
+                    <p><i>✉️</i> pmb@unsada.ac.id</p>
+                    <p><i>🕒</i> Senin-Jumat: 08.00-16.00 WIB</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy;@ 2025 Universitas Darma Persada</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
