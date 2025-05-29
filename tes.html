@@ -1,0 +1,27 @@
+.navbar { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; } .logo { display: flex; align-items: center; } .logo img { height: 50px; margin-right: 10px; } .logo-text h1 { color: var(--primary); font-size:
+1.5rem; font-weight: 700; } .logo-text p { color: var(--text-light); font-size: 0.8rem; } .nav-links { display: flex; list-style: none; } .nav-links li { margin-left: 2rem; } .nav-links a { text-decoration: none; color: var(--text);
+font-weight: 500; transition: color 0.3s; } .nav-links a:hover { color: var(--primary); } .nav-links .active { color: var(--primary); font-weight: 600; } .btn { display: inline-block; background-color: var(--primary); color: var(--white);
+padding: 0.6rem 1.5rem; border-radius: 5px; text-decoration: none; font-weight: 500; transition: background-color 0.3s; } .btn:hover { background-color: var(--primary-dark); }
+
+<!-- Header & Navbar -->
+<!-- Header -->
+<header>
+  <div class="container">
+    <nav class="navbar">
+      <div class="logo">
+        <img src="img/logo.jpg" alt="Logo Universitas" />
+        <div class="logo-text">
+          <h1>UNIVERSITAS DARMA PERSADA</h1>
+          <p>Unggul, Mandiri, Berkarakter</p>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="index.html#tentang">Tentang</a></li>
+        <li><a href="index.html#program">Program</a></li>
+        <li><a href="index.html#kontak">Kontak</a></li>
+        <li><a href="#" class="btn active">Daftar Sekarang</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
